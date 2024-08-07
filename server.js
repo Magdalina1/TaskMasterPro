@@ -1,13 +1,6 @@
-const express = require('express');
-const app = express();
-const taskRoutes = require('./routes/taskRoutes'); // Import task routes
+const app = require('./app');
 
-app.use(express.json()); // Middleware to parse JSON
-app.use('/tasks', taskRoutes); // Use task routes
-
-// Define a route for the root path
-app.get('/', (req, res) => {
-    res.send('Welcome to TaskMasterPro API!');
+const PORT = process.env.PORT || 3002;
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
 });
-
-module.exports = app;
